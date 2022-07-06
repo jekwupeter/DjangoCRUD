@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>MY TO DO LIST</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in all_items %}
+        <tr>
+            <th>{{item.title}}</th>
+            <th>{{item.body}}</th>
+            <th><span><a href="{% url 'todo:show' item.id %}">View</a></span>\
+                  <span><a href="{% url 'todo:edit' item.id %}">Edit</a></span>\
+                    <span><a href="{% url 'todo:delete' item.id %}">Delete</a></span></th>
+        </tr>
+        {% endfor %}    
+    </tbody>
+</table>
+{% endblock content %}

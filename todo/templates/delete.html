@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete {{todo_item}}</p>
+    <a href="{% url 'todo:home' %}">Go back</a>
+    <input type="submit" value="delete">
+</form>
+{% endblock content %}
